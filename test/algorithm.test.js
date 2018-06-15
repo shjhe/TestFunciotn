@@ -1,14 +1,13 @@
 var expect = require('chai').expect;
 var algorithm = require('../src/algorithm')
-console.log(algorithm)
 var utils = require('../src/utils')
 describe('algorithm', () => {
-  // mocha -g maopao
-  it('maopao', () => {
-    var maopao = algorithm.maopao
-    var testArr = utils.RandomArray(20, 10)
-    var result = maopao(testArr)
-    expect(JSON.stringify(result)).to.equal(JSON.stringify(result))
+  // mocha -g bubbleSort
+  it('bubbleSort', () => {
+    var bubbleSort = algorithm.bubbleSort
+    var testArr = utils.RandomArray(30, 100)
+    var result = bubbleSort(testArr)
+    expect(JSON.stringify(result)).to.equal(JSON.stringify(result.sort((a, b) => a - b)))
     
   })
   // 快速排序
