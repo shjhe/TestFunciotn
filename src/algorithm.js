@@ -50,8 +50,10 @@ module.exports.quick = quick
  * i = 1, j = 0, temp = 3, arr[j] = 1, 3 > 1 不进入循环 [1,3] [4,5,2]
  * i = 2, j = 1, temp = 4, arr[j] = 3, 4 > 3 不进入循环 [1,3,4] [5,2]
  * i = 3, j = 2, temp = 5, arr[j] = 4, 5 > 4 不进入循环 [1,3,4,5] [2]
- * i = 4, j = 3, temp = 2, arr[j] = 5, 2 < 5
- * 数组j+1 的位置 替换为 temp 完成一次插入
+ * i = 4, j = 3, temp = 2, arr[j] = 5, 2 < 5 进入孙循环 => [1,3,4,5,5]  j--
+ * i = 4, j = 2, temp = 2, arr[j] = 4, 2 < 4 进入孙循环 => [1,3,4,4,5]  j--
+ * i = 4, j = 1, temp = 2, arr[j] = 3, 2 < 3 进入孙循环 => [1,3,3,4,5]  j--
+ * i = 4, j = 0, temp = 2, arr[j] = 3, 2 > 1 不进入孙循环 => [1,2,3,4,5]
  */
 module.exports.pushSort = function (arr) {
   var len = arr.length, tmp, i, j
