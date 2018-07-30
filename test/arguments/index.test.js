@@ -7,7 +7,9 @@ describe('arguments', () => {
   it('sumArr', () => {
     var sumArr = arguments.sumArr
     var result = sumArr(1)(2,3,4,5).valueOf()
-    // console.log(result)
+    // 测试是否能清空 保留数据
+    var result2 = sumArr(1)(2,3,4,5).valueOf()
+    console.log(result, result2)
     expect(result).equals(15)
   })
 })
